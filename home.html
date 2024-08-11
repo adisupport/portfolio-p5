@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adi-Folio</title>
+    <style>
+        :root {
+            --color-brown: #A02334;
+            --color-badam: #FFAD60;
+            --color-cream: #FFEEAD;
+            --color-light-grey: #96CEB4;
+            --primary-color-light: #F8EDED;
+            --primary-color-dark: #173B45;
+            --secondary-color-light: #FF8225;
+            --secondary-color-dark: #B43F3F;
+
+            --primary-color-dark-1: #674188;
+            --primary-color-light-1: #E2BFD9;
+            --secondary-color-dark-1: #C8A1E0;
+            --secondary-color-light-1: #F7EFE5;
+            /* --bg-color-intro:;
+            --bg-color-about:;
+            --bg-color-skills:;
+            --bg-color-projects:;
+            --bg-color-blogs:;
+            --bg-color-contact:;
+            --header-text-color:;
+            --card-width:;
+            --profile-img:;
+            --profile-img-width:;
+            --profile-img-height; */
+        }
+
+        * {
+            margin: 0;
+        }
+
+        main {
+            background-color:var(--primary-color-light);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .nav {
+            display: flex;
+            position: sticky;
+            background: radial-gradient(75deg, orange, brown);
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.637);
+            justify-content: start;
+            align-items: center;
+            z-index: 3;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            flex: 8;
+            justify-content: start;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo {
+            flex: 7;
+        }
+
+        .nav-logo img {
+            width: 200px;
+        }
+
+        .nav a {
+            position: relative;
+            font-size: 18px;
+            margin: 0px 15px;
+            color: var(--primary-color-dark-1);
+            text-decoration: none;
+            transition: .1s ease-in-out;
+        }
+
+        .nav a:hover {
+            color: black;
+            padding: 0px 0 8px 0;
+            /* border-bottom: #FF8225 3px solid;
+            border-top: #FF8225 3px solid;
+            border-radius: 5px; */
+
+        }
+
+
+        .intro {
+            background-image: url("assests/bgIMG.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            height: 550px;
+            border-bottom: 5px solid var(--secondary-color-light);
+            padding: 40px 100px;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .intro-profile {
+            display: flex;
+            position: relative;
+            margin-top: 50px;
+            /* border-radius: 50%;
+            background-image: url("./assests/bgWhite.png");
+            /* border: 1px solid; */
+            /* overflow: hidden; */
+            /* height: 400px; */
+            /* width: 400px; */
+            
+        }
+
+        .intro-profile div:first-child {
+            background: radial-gradient(rgba(131, 136, 134, 0.616), rgba(255, 166, 0, 0.329));
+        }
+
+        .profile-img {
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 50%;
+            position: absolute;
+            left: 3px;
+            top: 6px;
+        }
+
+        .profile-img img {
+            position: relative;
+            left: -155px;
+            top: -70px;
+            width: 700px;
+        }
+
+        .intro-border {
+            width: 405px;
+            height: 405px;
+            animation: circle;
+            z-index: 2;
+            border-radius: 50%;
+            border-top: 5px solid rgb(187, 172, 177);
+            border-bottom: 3px solid yellow;
+            animation: circle;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes circle {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+        .left{
+            padding-top: 90px;
+        }
+
+        .left h1{
+            font-family: cursive;
+            font-size: 48px;
+        }
+        .left h1 span{
+            color: #674188;
+            text-shadow: 5px 5px 10px gold;
+        }
+        .intro-text{
+            position: relative;
+            left: 90px;
+            top: 20px;
+            width: 70ch;
+            line-height: 1.4rem;
+        }
+        .intro-text h2{
+            margin-bottom:15px ;
+        }
+    </style>
+
+    <style>
+        section h1{
+            font-family: cursive;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .skills,.projects{
+            padding: 48px 100px;
+        }
+        .skills-body{
+            display: flex;
+        }
+        .skill-section{
+            flex: 10;
+        }
+        .certification{
+            flex: 5;
+            margin-top: 5px;
+        }
+        .certification h3{
+            color:var(--primary-color-dark-1)
+        }
+        .skill{
+            margin: 10px 0;
+        }
+        .skill h3{
+            color: #674188;
+        }
+        .skill-list img{
+            width: 80px;
+            height: 80px;
+            margin-top: 10px;
+            padding: 5px;
+            margin-left: 10px;
+            /* border: 1px solid var(--secondary-color-light); */
+            border-radius: 50%;
+            transition: .2s ease-in-out;
+        }
+        .skill-list{
+            display: flex;
+            align-items: center;
+        }
+        .skill-list img:hover{
+            transform: scale(1.4);
+            border: none;
+        }
+        
+        .inline-block{
+            display: inline-block;
+        }
+        .inline-block h5{
+            font-weight: 100;
+            width: 20ch;
+        }
+        .certificate-period{
+            color: rgb(172, 118, 17);
+            font-size: 24px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bolder;
+            text-shadow: 1px 1px 5px var(--color-badam);
+        }
+        .certificate-img{
+            font-size: 12px;
+            height: 50px;
+            margin-left: 30px;
+            overflow: hidden;
+        }
+        .certificate-img:hover{
+            font-size: 12px;
+            height: fit-content;
+        }
+        .certificate-img h4{
+            font-size: 20px;
+        }
+        .certificate{
+            display: flex;
+            margin-top: 20px;
+        }
+        .certificate-img img{
+            margin-top: 20px;
+            height: 280px;
+        }
+
+    </style>
+
+    <style>
+        /* Project */
+        .project-card{
+            display: flex;
+            box-shadow: 1px 2px 5px black;
+            width: 280px;
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 20px;
+            flex-direction: column;
+            transition: .2s;
+        }
+        .project-card:hover{
+            transform: scale(1.02);
+        }
+        .project-card img{
+            /* width: 280px; */
+            height: 280px;
+            
+            border-radius: 20px;
+        }
+        .project-img{
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            background-color: black;
+            border-radius:20px;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-img,.project-links :hover{
+            opacity: 1;
+        }
+        .project-links{
+            position: absolute;
+            border: 5px rgb(230, 225, 221);
+        }
+        .project-links svg{
+            opacity: 0.3;
+            font-size: 64px;
+            fill: pink;
+            margin: 0px 20px;
+            transition: 0.1s ;
+        }
+        .project-links svg:hover{
+            transform: scale(0.9);
+        }
+        .project-tag{
+            background-color: white;
+            color: #674188;
+            width: 10ch;
+            padding: 10px 10px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 18px;
+            box-shadow: 2px 2px 8px gray;
+            position: absolute;
+            z-index: 5;
+            bottom: -10px;
+            text-align: center;
+        }
+        .project-tag:hover{
+            color: #FF8225;
+        }
+        .project-name{
+            font-size: 20px;
+            margin: 15px 0px;
+            color: var(--secondary-color-dark-1);
+        }
+        .project-desc{
+            font-size: 12px;
+            line-height: 1.15rem;
+        }
+        .project-body{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            justify-content: space-around;
+        }
+        section{
+            margin-top: 90px 0;
+            border-bottom: 4px solid var(--primary-color-dark-1);
+        }
+       
+    </style>
+    <style>
+        /* Contact */
+        .contacts{
+            background-color: var(--primary-color-dark);
+            height: 800px;
+            padding: 64px 100px;
+        }
+        .contact-panel{
+            height: 600px;
+            border-radius:20px ;
+            box-shadow: 5px 5px 10px white;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <main class="fullpage">
+        <header class="nav">
+            <div class="nav-logo"><img src="./assests/my_logo.png" alt=""></div>
+            <nav class="navbar">
+                <a href="#intro">Home</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Project</a>
+                <a href="./assests/resume/RESUME2024.pdf">Resume</a>
+                <a href="#blogs">Blogs</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+        <section id="intro" class="intro">
+            <!-- <img src="./assests/bgIMG.png" width="100%" height="100%" alt=""> -->
+            <div class="left">
+                <h1>👋 Hey, I'm <span>Aditya Kumar</span></h1>
+                <div class="intro-text">
+                    <h2>I am Software Developer</h2>
+                    <p>I am a versatile individual with a strong interest in multiple areas, not limited to a particular field of knowledge. <br><br> I am passionate about problem-solving and applying my Data Structures and Algorithms (DSA) expertise. <br><br> My enthusiasm for tackling complex challenges drives my continuous learning and growth in the field of software development</p>
+                </div>
+
+            </div>
+            <div class="intro-profile">
+                <div class="profile-img">
+                    <img src="./assests/profile.png" alt="">
+                </div>
+                <div class="intro-border"></div>
+            </div>
+        </section>
+        <section id="skills" class="skills">
+            <h1>Skills & Certificates</h1>
+            <div class="skills-body">
+                <div class="skill-section">
+                    <div class="skill">
+                        <h3>Problem Solving</h3>
+                        <div class="skill-list">
+                            <div class="inline-block">
+                                <img src="./assests/solid.jpeg" alt="">
+                                <h5>Solid Desgin Pattern</h5>
+                            </div>
+                            <div class="inline-block">
+                                <img src="./assests/dsa.jpg" alt="">
+                                <h5>Data Structure and Algorithms</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h3>Software Development Life Cycle</h3>
+                        <div class="skill-list">
+                            <span class="inline-block">
+                                <img src="./assests/agile.jpeg" alt="">
+                                <h5>Agile Methodology</h5>
+                            </span>
+                            <span class="inline-block">
+                                <img src="./assests/development_life_cycle.png" alt="">
+                                <h5>Development Cycle</h5>
+                            </span>
+                        </div>
+                        
+                    </div>
+                    <div class="skill">
+                        <h3>Frontend Skills</h3>
+                        <div class="skill-list">
+                            <img src="./assests/html.png" alt="">
+                            <img src="./assests/css.png" alt="">
+                            <img src="./assests/javascript.png" alt="">
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h3>Programming Language</h3>
+                        <div class="skill-list">
+                            <img src="./assests/java.png" alt="">
+                            <img src="./assests/python.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h3>Frameworks</h3>
+                        <div class="skill-list">
+                            <span class="inline-block">
+                                <img src="./assests/icons8-spring-boot-480.svg" alt="">
+                                <h5>Spring Framework</h5>
+                            </span>
+                            <img src="assests/android.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <h3>Tools</h3>
+                        <div class="skill-list">
+                            <span class="inline-block">
+                                <img src="./assests/git.png" alt="">
+                                <h5>Git</h5>
+                            </span>
+                            <span class="inline-block">
+                                <img src="./assests/vscode.jpeg" alt="">
+                                <h5>vscode</h5>
+                            </span>
+                            <span class="inline-block">
+                                <img src="./assests/android-studio.png" alt="">
+                                <h5>Android Studio</h5>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certification">
+                    <h3>Courses</h3>
+                    <br>
+                    <div class="certificate">
+                        <div class="certificate-period">
+                            <span>2021</span>
+                        </div>
+                        <div class="certificate-img">
+                            <h4>100 Days of Python Programming</h4>
+                            <p>Udemy</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="certificate">
+                        <div class="certificate-period">
+                            <span>2022</span>
+                        </div>
+                        <div class="certificate-img">
+                            <h4>Android Development</h4>
+                            <p>Udemy</p>
+                        </div>
+                    </div>
+
+                    <br><br><br>
+                    <h3>Certificates</h3>
+                    <div class="certificate">
+                        <div class="certificate-period">
+                            <span>2023</span>
+                        </div>
+                        <div class="certificate-img">
+                            <h4>Data Structure and Algorithms</h4>
+                            <p>Scaler</p>
+                            <img src="./assests/dsa.png" alt="">
+                        </div>
+                    </div>
+                    <div class="certificate">
+                        <div class="certificate-period">
+                            <span>2023</span>
+                        </div>
+                        <div class="certificate-img">
+                            <h4>SQL</h4>
+                            <p>Scaler</p>
+                            <img src="./assests/Data base and SQL.png" alt="">
+                        </div>
+                    </div>
+                    <div class="certificate">
+                        <div class="certificate-period">
+                            <span>2023</span>
+                        </div>
+                        <div class="certificate-img">
+                            <h4>Low Level Design</h4>
+                            <p>Scaler</p>
+                            <img src="./assests/Low Level Design.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="projects">
+            <h1>Projects</h1>
+            <div class="project-body">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="./assests/project-img/javafullstack.jpeg">
+                        <div class="project-links">
+                            <a href="https://javafullstack.netlify.app/"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M396 512a112 112 0 1 0 224 0 112 112 0 1 0-224 0zm546.2-25.8C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM508 688c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"></path></svg></a>
+                            <a href="https://github.com/adisupport/jspider-notes"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path></svg></a>
+                        </div>
+                        <div class="project-tag">mkdocs</div>
+                    </div>
+                    <div class="project-name">Java-FullStack-Notes</div>
+                    <div class="project-desc">Build and deployed typed note of JAVA, SQL and Web Technology using mkdocs builder and netfliy. 
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://cdn.sanity.io/images/jzo1v0ln/production/49cfc1bdc9a8c6ce52fde6777a3bce87b948858c-1298x603.gif">
+                        <div class="project-links">
+                            <a href=""><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M396 512a112 112 0 1 0 224 0 112 112 0 1 0-224 0zm546.2-25.8C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM508 688c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"></path></svg></a>
+                            <a href=""><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path></svg></a>
+                        </div>
+                        <div class="project-tag">Python</div>
+                    </div>
+                    <div class="project-name">Snake</div>
+                    <div class="project-desc">Using Python turtle library developed a GUI Snack game,This Project is about LLD Design to understand how to use concepts of OOPS to build a Software.
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://cdn.sanity.io/images/jzo1v0ln/production/c8d7c2733e4e1b8067016d61dd9c05386740fe3e-360x360.jpg">
+                        <div class="project-links">
+                            <a href=""><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M396 512a112 112 0 1 0 224 0 112 112 0 1 0-224 0zm546.2-25.8C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM508 688c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"></path></svg></a>
+                            <a href=""><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path></svg></a>
+                        </div>
+                        <div class="project-tag">Spring-Boot</div>
+                    </div>
+                    <div class="project-name">E-commerce[Backend]</div>
+                    <div class="project-desc">Design and developed a robut and scalable backend application using Spring Boot Framework following MVC architecture. Implemented multiple microservices to userservice, product cataloging service, and payment service.
+
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="./assests/project-img/password_manager.gif">
+                        <div class="project-links">
+                            <a href=""><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M396 512a112 112 0 1 0 224 0 112 112 0 1 0-224 0zm546.2-25.8C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM508 688c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"></path></svg></a>
+                            <a href=""><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path></svg></a>
+                        </div>
+                        <div class="project-tag">Python</div>
+                    </div>
+                    <div class="project-name">Password Manager</div>
+                    <div class="project-desc">Python GUI Application,Purpose of this project is to understand Tkinter Grid System and String processing in Python.
+
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="./assests/project-img/journel.gif">
+                        <div class="project-links">
+                            <a href=""><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M396 512a112 112 0 1 0 224 0 112 112 0 1 0-224 0zm546.2-25.8C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM508 688c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"></path></svg></a>
+                            <a href=""><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path></svg></a>
+                        </div>
+                        <div class="project-tag">React</div>
+                    </div>
+                    <div class="project-name">Keeper</div>
+                    <div class="project-desc">Todo List Application Using. 
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="./assests/project-img/gallery.gif">
+                        <div class="project-links">
+                            <a href=""><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M396 512a112 112 0 1 0 224 0 112 112 0 1 0-224 0zm546.2-25.8C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM508 688c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"></path></svg></a>
+                            <a href=""><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path></svg></a>
+                        </div>
+                        <div class="project-tag">MERN</div>
+                    </div>
+                    <div class="project-name">Photo Gallery</div>
+                    <div class="project-desc">It is a simple image gallery store,where we can upload,view,delete.Node,ejs,express and mongoDB ORM mongoose are used to build this project.File handling is the main purpose of the project.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contacts">
+            <div class="contact-panel">
+                <div class="contact">
+                    <div class="icon"></div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>aditechhelp@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact">
+                    <div class="icon"></div>
+                    <div class="contact-details">
+                        <h3>Social Profiles</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
