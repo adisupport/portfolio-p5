@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adi-Folio</title>
     <link rel="icon" href="./assests//icons/image_icon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/@hello/type.js@1.0.0/dist/type.js"></script>
+
     <style>
         :root {
             --color-brown: #A02334;
@@ -399,7 +401,7 @@
             <div class="left">
                 <h1>👋 Hey, I'm <span>Aditya Kumar</span></h1>
                 <div class="intro-text">
-                    <h2>I am Software Developer</h2>
+                    <h2><span id="typed-text"></span></h2>
                     <p>I am a versatile individual with a strong interest in multiple areas, not limited to a particular field of knowledge. <br><br> I am passionate about problem-solving and applying my Data Structures and Algorithms (DSA) expertise. <br><br> My enthusiasm for tackling complex challenges drives my continuous learning and growth in the field of software development</p>
                 </div>
 
@@ -671,6 +673,22 @@
             </div>
         </section>
     </main>
+    <script async src="https://cdn.jsdelivr.net/npm/@hello/type.js@1.0.0/dist/type.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script defer>
+        console.log("Hello")
+        document.addEventListener('DOMContentLoaded', function () {
+          new Typed('#typed-text', {
+            strings: ['Hello Stranger', 'I am a Software Developer','Sometime Frontend Developer','Sometime Android Developer','Sometime Backend Developer','And full time PROBLEM SOLVER'],
+            typeSpeed: 100,
+            backSpeed: 50,
+            loop: true
+          });
+        });
+      </script>
+      
+      
 </body>
 
 </html>
